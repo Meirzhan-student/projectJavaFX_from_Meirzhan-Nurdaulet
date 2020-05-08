@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="669.0" style="-fx-border-color: black; -fx-border-width: 4;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <SplitPane dividerPositions="0.25307125307125306" layoutX="7.0" layoutY="6.0" orientation="VERTICAL" prefHeight="409.0" prefWidth="656.0">
+        <items>
+          <AnchorPane fx:id="LabelWelcome" minHeight="0.0" minWidth="0.0" prefHeight="84.0" prefWidth="654.0" style="-fx-background-color: aqua; -fx-border-color: black; -fx-border-width: 3;">
+               <children>
+                  <Label layoutX="77.0" layoutY="2.0" prefHeight="96.0" prefWidth="501.0" text="Welcome to the hotel &quot;Dream&quot;!">
+                     <font>
+                        <Font name="Pristina" size="50.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="260.0" prefWidth="654.0" style="-fx-background-color: black;">
+               <children>
+                  <ImageView fitHeight="346.0" fitWidth="790.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.4945068359375" AnchorPane.leftAnchor="-6.0" AnchorPane.rightAnchor="-130.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@images/miami.jpg" />
+                     </image>
+                     <effect>
+                        <MotionBlur radius="3.85" />
+                     </effect>
+                  </ImageView>
+                  <Label layoutX="199.0" layoutY="14.0" text="Authentification">
+                     <font>
+                        <Font name="Pristina" size="50.0" />
+                     </font>
+                     <effect>
+                        <Lighting bumpInput="$null">
+                           <light>
+                              <Light.Distant color="#b21d1d" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Label>
+                  <PasswordField fx:id="PassButtton" layoutX="365.0" layoutY="119.0" prefHeight="47.0" prefWidth="275.0" promptText="Password" style="-fx-border-color: silver; -fx-background-radius: 7; -fx-border-radius: 7;" />
+                  <TextField fx:id="LoginButton" layoutX="14.0" layoutY="119.0" prefHeight="47.0" prefWidth="275.0" promptText="Login" style="-fx-border-color: silver; -fx-border-radius: 7; -fx-background-radius: 7;" />
+                  <Button fx:id="SigninButton" layoutX="271.0" layoutY="207.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="113.0" style="-fx-background-color: aqua; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 7;" text="Sign in">
+                     <font>
+                        <Font name="Pristina" size="29.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Signupbutton" layoutX="552.0" layoutY="237.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="88.0" style="-fx-background-color: aqua; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 7;" text="Sign up">
+                     <font>
+                        <Font name="Pristina" size="20.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="518.0" layoutY="237.0" text="or">
+                     <font>
+                        <Font name="Pristina" size="29.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

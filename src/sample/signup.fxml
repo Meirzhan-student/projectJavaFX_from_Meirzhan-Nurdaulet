@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="669.0" style="-fx-border-color: black; -fx-border-width: 4;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SignUpController">
+    <children>
+        <SplitPane dividerPositions="0.25307125307125306" layoutX="7.0" layoutY="6.0" orientation="VERTICAL" prefHeight="409.0" prefWidth="656.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="84.0" prefWidth="654.0" style="-fx-background-color: aqua; -fx-border-color: black; -fx-border-width: 3;">
+                    <children>
+                        <Label layoutX="137.0" layoutY="9.0" text="New User Registration.">
+                            <font>
+                                <Font name="Pristina" size="50.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="260.0" prefWidth="654.0" style="-fx-background-color: black;">
+                    <children>
+                        <ImageView fitHeight="346.0" fitWidth="790.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.4945068359375" AnchorPane.leftAnchor="-6.0" AnchorPane.rightAnchor="-130.0" AnchorPane.topAnchor="0.0">
+                            <image>
+                                <Image url="@images/miami.jpg" />
+                            </image>
+                            <effect>
+                                <MotionBlur radius="3.85" />
+                            </effect>
+                        </ImageView>
+                        <PasswordField fx:id="PassButtton" layoutX="365.0" layoutY="81.0" prefHeight="47.0" prefWidth="275.0" promptText="Password" style="-fx-border-color: silver; -fx-background-radius: 7; -fx-border-radius: 7;" />
+                        <TextField fx:id="LoginButton" layoutX="14.0" layoutY="81.0" prefHeight="47.0" prefWidth="275.0" promptText="Login" style="-fx-border-color: silver; -fx-border-radius: 7; -fx-background-radius: 7;" />
+                        <Button fx:id="SignupButton" layoutX="282.0" layoutY="237.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="90.0" style="-fx-background-color: aqua; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 7;" text="Sign up">
+                            <font>
+                                <Font name="Pristina" size="22.0" />
+                            </font>
+                        </Button>
+                  <TextField fx:id="NameSignUp" layoutX="14.0" layoutY="16.0" prefHeight="47.0" prefWidth="275.0" promptText="Name" style="-fx-border-color: silver; -fx-border-radius: 7; -fx-background-radius: 7;" />
+                  <TextField fx:id="SurnameSignUp" layoutX="365.0" layoutY="16.0" prefHeight="47.0" prefWidth="275.0" promptText="Surname" style="-fx-border-color: silver; -fx-border-radius: 7; -fx-background-radius: 7;" />
+                  <CheckBox fx:id="ThreeCheckBox" layoutX="22.0" layoutY="144.0" mnemonicParsing="false" text="three stars" textFill="#f8f7f7">
+                     <font>
+                        <Font name="Pristina" size="35.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="FourCheckBox" layoutX="255.0" layoutY="144.0" mnemonicParsing="false" text="four stars" textFill="#f8f7f7">
+                     <font>
+                        <Font name="Pristina" size="35.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="FiveCheckBox" layoutX="483.0" layoutY="144.0" mnemonicParsing="false" text="five stars" textFill="#f8f7f7">
+                     <font>
+                        <Font name="Pristina" size="35.0" />
+                     </font>
+                  </CheckBox>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>

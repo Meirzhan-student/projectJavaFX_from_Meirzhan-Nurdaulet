@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FoodController">
+   <tabs>
+      <Tab style="-fx-background-color: aqua;" text="Menu">
+         <content>
+            <AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #2f4f4f;">
+               <children>
+                  <AnchorPane prefHeight="78.0" prefWidth="1100.0" style="-fx-background-color: aqua;">
+                     <children>
+                        <Label layoutX="499.0" text="Menu">
+                           <font>
+                              <Font name="Pristina" size="50.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#470954" />
+                                    <Stop color="#750b8a" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="990.0" layoutY="653.0" text="Hotel &quot;Dream&quot;" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="815.0" layoutY="102.0" text="Quantity" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="40.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="addSoupQnt" layoutX="813.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleAddSoupQnt" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" text="+" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="minusSoupQnt" layoutX="883.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleMinusSoupQnt" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" text="-" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="soupQnt" layoutX="957.0" layoutY="169.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="31.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="textArea" layoutX="14.0" layoutY="528.0" prefHeight="158.0" prefWidth="843.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" stylesheets="@food.css" />
+                  <Button fx:id="orderBttn" layoutX="883.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleOrder" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" text="Make an order!" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="25.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="resetBttn" layoutX="883.0" layoutY="601.0" mnemonicParsing="false" onAction="#handleReset" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" text="Reset" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="25.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="140.0" fitWidth="208.0" layoutX="39.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/soup.png" />
+                     </image>
+                  </ImageView>
+                  <VBox layoutX="294.0" layoutY="109.0" prefHeight="171.0" prefWidth="178.0">
+                     <children>
+                        <RadioButton fx:id="borshRB" mnemonicParsing="false" text="Borsh" textFill="#fffdfd">
+                           <font>
+                              <Font name="Pristina" size="30.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="SoupTg" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="ramenRB" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Ramen" textFill="#fffdfd" toggleGroup="$SoupTg">
+                           <font>
+                              <Font name="Pristina" size="30.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="onionRB" layoutX="10.0" layoutY="60.0" mnemonicParsing="false" text="Onion Soup" textFill="#fffdfd" toggleGroup="$SoupTg">
+                           <font>
+                              <Font name="Pristina" size="30.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </VBox>
+                  <Label layoutX="481.0" layoutY="150.0" prefHeight="65.0" prefWidth="69.0" text=" Size" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="40.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="cbSizeSoup" layoutX="572.0" layoutY="161.0" prefHeight="43.0" prefWidth="178.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" />
+                  <ImageView fitHeight="216.0" fitWidth="232.0" layoutX="35.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/pasta.png" />
+                     </image>
+                  </ImageView>
+                  <VBox layoutX="294.0" layoutY="320.0" prefHeight="171.0" prefWidth="178.0">
+                     <children>
+                        <RadioButton fx:id="alfredoRB" mnemonicParsing="false" text="Alfreado" textFill="#fffdfd">
+                           <font>
+                              <Font name="Pristina" size="30.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="PastaTg" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="balogRB" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Balognese" textFill="#fffdfd" toggleGroup="$PastaTg">
+                           <font>
+                              <Font name="Pristina" size="30.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="fettRB" layoutX="10.0" layoutY="60.0" mnemonicParsing="false" text="Fettuchini" textFill="#fffdfd" toggleGroup="$PastaTg">
+                           <font>
+                              <Font name="Pristina" size="30.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </VBox>
+                  <Label layoutX="481.0" layoutY="373.0" prefHeight="65.0" prefWidth="69.0" text=" Size" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="40.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="cbSizePasta" layoutX="572.0" layoutY="384.0" prefHeight="43.0" prefWidth="178.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" />
+                  <Label layoutX="815.0" layoutY="318.0" text="Quantity" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="40.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="addPastaQnt" layoutX="813.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleAddPastaQnt" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" text="+" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="minusPastaQnt" layoutX="883.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleMinusPastaQnt" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" text="-" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="pastaQnt" layoutX="958.0" layoutY="402.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="31.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab style="-fx-background-color: aqua;" text="Menu">
+         <content>
+            <AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #2f4f4f;">
+               <children>
+                  <AnchorPane prefHeight="78.0" prefWidth="1100.0" style="-fx-background-color: aqua;">
+                     <children>
+                        <Label layoutX="499.0" text="Menu">
+                           <font>
+                              <Font name="Pristina" size="50.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#470954" />
+                                    <Stop color="#750b8a" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="990.0" layoutY="653.0" text="Hotel &quot;Dream&quot;" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="815.0" layoutY="102.0" text="Quantity" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="40.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="addSeaQnt" layoutX="813.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleAddSeaQnt" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" text="+" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="minusSeaQnt" layoutX="883.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleMinusSeaQnt" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" text="-" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="seaQnt" layoutX="957.0" layoutY="169.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="31.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="210.0" fitWidth="214.0" layoutX="39.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/seagooood.png" />
+                     </image>
+                  </ImageView>
+                  <VBox layoutX="294.0" layoutY="109.0" prefHeight="171.0" prefWidth="178.0">
+                     <children>
+                        <RadioButton fx:id="ShrimpsRB" mnemonicParsing="false" text="Shrimps" textFill="#fffdfd">
+                           <font>
+                              <Font name="Pristina" size="30.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="SeaTg" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="squidRB" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Squid" textFill="#fffdfd" toggleGroup="$SeaTg">
+                           <font>
+                              <Font name="Pristina" size="30.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="tunaRB" layoutX="10.0" layoutY="60.0" mnemonicParsing="false" text="Tuna Mix" textFill="#fffdfd" toggleGroup="$SeaTg">
+                           <font>
+                              <Font name="Pristina" size="30.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </VBox>
+                  <Label layoutX="481.0" layoutY="150.0" prefHeight="65.0" prefWidth="69.0" text=" Size" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="40.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="cbSizeSea" layoutX="572.0" layoutY="161.0" prefHeight="43.0" prefWidth="178.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" />
+                  <ImageView fitHeight="216.0" fitWidth="232.0" layoutX="39.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/drink.png" />
+                     </image>
+                  </ImageView>
+                  <VBox layoutX="294.0" layoutY="320.0" prefHeight="171.0" prefWidth="178.0">
+                     <children>
+                        <RadioButton fx:id="alchRB" mnemonicParsing="false" text="Alcohol" textFill="#fffdfd">
+                           <font>
+                              <Font name="Pristina" size="30.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="DrinkTg" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="juiceRB" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Juice" textFill="#fffdfd" toggleGroup="$DrinkTg">
+                           <font>
+                              <Font name="Pristina" size="30.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="waterRB" layoutX="10.0" layoutY="60.0" mnemonicParsing="false" text="Water" textFill="#fffdfd" toggleGroup="$DrinkTg">
+                           <font>
+                              <Font name="Pristina" size="30.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </VBox>
+                  <Label layoutX="481.0" layoutY="373.0" prefHeight="65.0" prefWidth="69.0" text=" Size" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="40.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="cbSizeDrink" layoutX="572.0" layoutY="384.0" prefHeight="43.0" prefWidth="178.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" />
+                  <Label layoutX="815.0" layoutY="318.0" text="Quantity" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="40.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="addDrinkQnt" layoutX="813.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleAddDrinkQnt" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" text="+" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="minusSoupQnt" layoutX="883.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleMinusDrinkQnt" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" text="-" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="drinkQnt" layoutX="958.0" layoutY="402.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="Pristina" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="89.0" layoutY="578.0" text="Have a Coupon?" textFill="AQUA">
+                     <font>
+                        <Font name="Pristina" size="30.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="chkNone" layoutX="294.0" layoutY="578.0" mnemonicParsing="false" text="No" textFill="AQUA">
+                     <font>
+                        <Font name="Pristina" size="30.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="chkOne" layoutX="420.0" layoutY="578.0" mnemonicParsing="false" text="1 $" textFill="AQUA">
+                     <font>
+                        <Font name="Pristina" size="30.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="chkTwo" layoutX="530.0" layoutY="578.0" mnemonicParsing="false" text="2 $" textFill="AQUA">
+                     <font>
+                        <Font name="Pristina" size="30.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab style="-fx-background-color: aqua;" text="Total Amount">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #2f4f4f;">
+               <children>
+                  <Button fx:id="calculateEvery" layoutX="43.0" layoutY="596.0" mnemonicParsing="false" onAction="#handleCalculateSales" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 15;" text="Calculate Everythnig" textFill="AQUA">
+                     <font>
+                        <Font name="Pristina" size="25.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="990.0" layoutY="653.0" text="Hotel &quot;Dream&quot;">
+                     <font>
+                        <Font name="Pristina" size="20.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.10679611650485432" endY="0.3932038834951456" startY="1.0">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="#ac6afc" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Label layoutX="424.0" layoutY="35.0" text="Total Amount">
+                     <font>
+                        <Font name="Pristina" size="55.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.10679611650485432" endY="0.3932038834951456" startY="1.0">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="#ac6afc" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Button fx:id="resetEveryth" layoutX="280.0" layoutY="596.0" mnemonicParsing="false" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 15;" text="Reset" textFill="AQUA">
+                     <font>
+                        <Font name="Pristina" size="25.0" />
+                     </font>
+                  </Button>
+                  <TextArea fx:id="totalTextArea" layoutX="45.0" layoutY="125.0" prefHeight="433.0" prefWidth="1012.0" stylesheets="@food.css" />
+               </children></AnchorPane>
+        </content>
+      </Tab>
+   </tabs>
+</TabPane>
