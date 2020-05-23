@@ -36,10 +36,14 @@
                         </ImageView>
                         <PasswordField fx:id="PassButtton" layoutX="365.0" layoutY="81.0" prefHeight="47.0" prefWidth="275.0" promptText="Password" style="-fx-border-color: silver; -fx-background-radius: 7; -fx-border-radius: 7;" />
                         <TextField fx:id="LoginButton" layoutX="14.0" layoutY="81.0" prefHeight="47.0" prefWidth="275.0" promptText="Login" style="-fx-border-color: silver; -fx-border-radius: 7; -fx-background-radius: 7;" />
-                        <Button fx:id="SignupButton" layoutX="282.0" layoutY="237.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="90.0" style="-fx-background-color: aqua; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 7;" text="Sign up">
+                        <Button fx:id="SignupButton" layoutX="282.0" layoutY="237.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="90.0" style="-fx-background-color: aqua; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 7;" stylesheets="@CSS/button.css" text="Sign up">
                             <font>
                                 <Font name="Pristina" size="22.0" />
                             </font>
+                     <styleClass>
+                        <String fx:value="btn-text" />
+                        <String fx:value="btn" />
+                     </styleClass>
                         </Button>
                   <TextField fx:id="NameSignUp" layoutX="14.0" layoutY="16.0" prefHeight="47.0" prefWidth="275.0" promptText="Name" style="-fx-border-color: silver; -fx-border-radius: 7; -fx-background-radius: 7;" />
                   <TextField fx:id="SurnameSignUp" layoutX="365.0" layoutY="16.0" prefHeight="47.0" prefWidth="275.0" promptText="Surname" style="-fx-border-color: silver; -fx-border-radius: 7; -fx-background-radius: 7;" />
@@ -53,7 +57,7 @@
                         <Font name="Pristina" size="35.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox fx:id="FiveCheckBox" layoutX="483.0" layoutY="144.0" mnemonicParsing="false" text="five stars" textFill="#f8f7f7">
+                  <CheckBox fx:id="FiveCheckBox" layoutX="483.0" layoutY="144.0" mnemonicParsing="false" styleClass="btn-text" text="five stars" textFill="#f8f7f7">
                      <font>
                         <Font name="Pristina" size="35.0" />
                      </font>

@@ -1,5 +1,5 @@
 .text-area *.content {
     -fx-background-color: #2f4f4f;
-    font-family: "Pristina";
-    color: #fafafa;
+    -fx-text-fill: #1e88e5;
+        -fx-font-size: 32px;
 }

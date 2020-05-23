@@ -1,34 +1,28 @@
 package sample;
 import java.net.*;
 import java.io.*;
+import java.util.function.Consumer;
 
-public class Server {
-        public static void main(String[] args) throws IOException , InterruptedException {
-            int count = 0;
-            ServerSocket serverSocket = new ServerSocket(3306);
-            System.out.println("Server starting...");
-            while (true){
-                Socket clientSocket = serverSocket.accept();
-                System.out.println("Client accepted  " + (count++));
+public class Server extends Service{
+    private int port;
 
-                BufferedWriter writer = new BufferedWriter(
-                        new OutputStreamWriter(
-                                clientSocket.getOutputStream()));
-                BufferedReader reader = new BufferedReader(
-                        new InputStreamReader(
-                                clientSocket.getInputStream()));
+    public Server(int port, Consumer<Serializable> onReceiveCallback) {
+        super(onReceiveCallback);
+        this.port = port;
+    }
 
-                String request = reader.readLine();
-                Thread.sleep(3000);
-                String response = "#" + count + " request lan "  + request.length();
+    @Override
+    protected boolean isServer() {
+        return true;
+    }
 
-                writer.write(response);
-                writer.newLine();
-                writer.flush();
+    @Override
+    protected String getIP() {
+        return null;
+    }
 
-                writer.close();
-                reader.close();
-                clientSocket.close();
-            }
-        }
+    @Override
+    protected int getPort() {
+        return port;
+    }
 }

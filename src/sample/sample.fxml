@@ -48,15 +48,23 @@
                   </Label>
                   <PasswordField fx:id="PassButtton" layoutX="365.0" layoutY="119.0" prefHeight="47.0" prefWidth="275.0" promptText="Password" style="-fx-border-color: silver; -fx-background-radius: 7; -fx-border-radius: 7;" />
                   <TextField fx:id="LoginButton" layoutX="14.0" layoutY="119.0" prefHeight="47.0" prefWidth="275.0" promptText="Login" style="-fx-border-color: silver; -fx-border-radius: 7; -fx-background-radius: 7;" />
-                  <Button fx:id="SigninButton" layoutX="271.0" layoutY="207.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="113.0" style="-fx-background-color: aqua; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 7;" text="Sign in">
+                  <Button fx:id="SigninButton" layoutX="271.0" layoutY="207.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="113.0" style="-fx-background-color: aqua; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 7;" stylesheets="@CSS/button.css" text="Sign in">
                      <font>
                         <Font name="Pristina" size="29.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="btn-text" />
+                        <String fx:value="btn" />
+                     </styleClass>
                   </Button>
-                  <Button fx:id="Signupbutton" layoutX="552.0" layoutY="237.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="88.0" style="-fx-background-color: aqua; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 7;" text="Sign up">
+                  <Button fx:id="Signupbutton" layoutX="552.0" layoutY="237.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="88.0" style="-fx-background-color: aqua; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 7;" stylesheets="@CSS/button.css" text="Sign up">
                      <font>
                         <Font name="Pristina" size="20.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="btn-text" />
+                        <String fx:value="btn" />
+                     </styleClass>
                   </Button>
                   <Label layoutX="518.0" layoutY="237.0" text="or">
                      <font>

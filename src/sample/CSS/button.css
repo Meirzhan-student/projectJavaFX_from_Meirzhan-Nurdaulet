@@ -1,0 +1,19 @@
+.btn-text{
+    -fx-text-fill:black;
+}
+.btn:hover{
+    -fx-border-width: 0px 0px 0px 3px;
+    -fx-border-color:lime;
+    -fx-border-style:solid;
+    -fx-text-fill:white;
+}
+
+.button-text{
+    -fx-text-fill:aqua;
+}
+.button:hover{
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-color:lime;
+    -fx-border-style:solid;
+    -fx-text-fill:black;
+}

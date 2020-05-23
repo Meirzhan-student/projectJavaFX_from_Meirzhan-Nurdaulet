@@ -1,0 +1,9 @@
+.jfx-combo-box {
+	-fx-background-color:  #2f4f4f;
+}
+
+.jfx-combo-box .label {
+	-fx-background-color:  #2f4f4f;
+	-fx-text-fill: AQUA;
+	-fx-border-radius: 10px;
+}

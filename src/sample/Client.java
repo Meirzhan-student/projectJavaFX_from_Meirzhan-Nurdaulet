@@ -2,27 +2,30 @@ package sample;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.function.Consumer;
 
-public class Client {
-    public static void main(String[] args) throws IOException{
-        Socket clientSocket = new Socket("127.0.0.1" ,8000);
+public class Client extends Service {
+    private String ip;
+    private int port;
 
-        BufferedWriter writer = new BufferedWriter(
-                new OutputStreamWriter(
-                        clientSocket.getOutputStream()));
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(
-                        clientSocket.getInputStream()));
+    public Client( String ip, int port, Consumer<Serializable> onReceiveCallback) {
+        super(onReceiveCallback);
+        this.ip = ip;
+        this.port = port;
+    }
 
-        writer.write("Give info");
-        writer.newLine();
-        writer.flush();
+    @Override
+    protected boolean isServer() {
+        return false;
+    }
 
-        String response = reader.readLine();
-        System.out.println(response);
+    @Override
+    protected String getIP() {
+        return ip;
+    }
 
-        writer.close();
-        reader.close();
-        clientSocket.close();
+    @Override
+    protected int getPort() {
+        return port;
     }
 }

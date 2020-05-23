@@ -13,7 +13,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import sample.animations.Shake;
 
 public class Controller {
@@ -45,8 +48,12 @@ public class Controller {
             String loginText = LoginButton.getText().trim();
             String loginPassword = PassButtton.getText().trim();
             if (!loginText.equals("") && !loginPassword.equals("")){
-                loginUser(loginText, loginPassword);
-            
+                try {
+                    loginUser(loginText, loginPassword);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
             else
                 System.out.println("The field is empty!");
@@ -68,7 +75,7 @@ public class Controller {
         });
     }
 
-    private void loginUser(String loginText, String loginPassword) {
+    private void loginUser(String loginText, String loginPassword) throws IOException {
         DatabaseHandler dbHandler = new DatabaseHandler();
         Guests guests = new Guests();
         guests.setLogin(loginText);
@@ -104,6 +111,16 @@ public class Controller {
             Shake guestPassAnim = new Shake(PassButtton);
             guestLoginAnim.playAnim();
             guestPassAnim.playAnim();
+            Stage s = new Stage(StageStyle.TRANSPARENT);
+            s.initModality(Modality.APPLICATION_MODAL);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ReportDialog.fxml"));
+            Scene scene = new Scene((Parent)loader.load());
+            ReportDialogController controller = (ReportDialogController)loader.getController();
+            controller.setMessage("Input data is invalid");
+            controller.setStage(s);
+            scene.setFill(Color.TRANSPARENT);
+            s.setScene(scene);
+            s.show();
         }
     }
 

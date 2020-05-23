@@ -10,4 +10,5 @@ public class Const {
     public static final String GUEST_PASSWORD = "password";
     public static final String GUEST_STAR = "star";
 
+
 }

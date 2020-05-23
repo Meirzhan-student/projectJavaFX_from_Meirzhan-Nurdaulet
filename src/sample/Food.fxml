@@ -31,6 +31,15 @@
                               </LinearGradient>
                            </textFill>
                         </Label>
+                        <Button fx:id="backBttn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: aqua; -fx-border-color: #2f4f4f; -fx-border-radius: 10;" stylesheets="@CSS/button.css" text="Back">
+                           <font>
+                              <Font name="Pristina" size="20.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn-text" />
+                              <String fx:value="btn" />
+                           </styleClass>
+                        </Button>
                      </children>
                   </AnchorPane>
                   <Label layoutX="990.0" layoutY="653.0" text="Hotel &quot;Dream&quot;" textFill="WHITE">
@@ -58,11 +67,15 @@
                         <Font name="Pristina" size="31.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="textArea" layoutX="14.0" layoutY="528.0" prefHeight="158.0" prefWidth="843.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" stylesheets="@food.css" />
-                  <Button fx:id="orderBttn" layoutX="883.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleOrder" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" text="Make an order!" textFill="WHITE">
+                  <TextArea fx:id="textArea" layoutX="14.0" layoutY="528.0" prefHeight="158.0" prefWidth="843.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" stylesheets="@CSS/food.css" />
+                  <Button fx:id="orderBttn" layoutX="883.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleOrder" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" stylesheets="@CSS/button.css" text="Make an order!" textFill="WHITE">
                      <font>
                         <Font name="Pristina" size="25.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="button-text" />
+                        <String fx:value="btn" />
+                     </styleClass>
                   </Button>
                   <Button fx:id="resetBttn" layoutX="883.0" layoutY="601.0" mnemonicParsing="false" onAction="#handleReset" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" text="Reset" textFill="WHITE">
                      <font>
@@ -101,7 +114,7 @@
                         <Font name="Pristina" size="40.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="cbSizeSoup" layoutX="572.0" layoutY="161.0" prefHeight="43.0" prefWidth="178.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" />
+                  <ChoiceBox fx:id="cbSizeSoup" layoutX="572.0" layoutY="161.0" prefHeight="43.0" prefWidth="178.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua;" styleClass="jfx-combo-box" stylesheets="@CSS/comboBox.css" />
                   <ImageView fitHeight="216.0" fitWidth="232.0" layoutX="35.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/pasta.png" />
@@ -134,7 +147,7 @@
                         <Font name="Pristina" size="40.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="cbSizePasta" layoutX="572.0" layoutY="384.0" prefHeight="43.0" prefWidth="178.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" />
+                  <ChoiceBox fx:id="cbSizePasta" layoutX="572.0" layoutY="384.0" prefHeight="43.0" prefWidth="178.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua;" styleClass="jfx-combo-box" stylesheets="@CSS/comboBox.css" />
                   <Label layoutX="815.0" layoutY="318.0" text="Quantity" textFill="WHITE">
                      <font>
                         <Font name="Pristina" size="40.0" />
@@ -237,7 +250,7 @@
                         <Font name="Pristina" size="40.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="cbSizeSea" layoutX="572.0" layoutY="161.0" prefHeight="43.0" prefWidth="178.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" />
+                  <ChoiceBox fx:id="cbSizeSea" layoutX="572.0" layoutY="161.0" prefHeight="43.0" prefWidth="178.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua;" styleClass="jfx-combo-box" stylesheets="@CSS/comboBox.css" />
                   <ImageView fitHeight="216.0" fitWidth="232.0" layoutX="39.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/drink.png" />
@@ -270,7 +283,7 @@
                         <Font name="Pristina" size="40.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="cbSizeDrink" layoutX="572.0" layoutY="384.0" prefHeight="43.0" prefWidth="178.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 10;" />
+                  <ChoiceBox fx:id="cbSizeDrink" layoutX="572.0" layoutY="384.0" prefHeight="43.0" prefWidth="178.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua;" styleClass="jfx-combo-box" stylesheets="@CSS/comboBox.css" />
                   <Label layoutX="815.0" layoutY="318.0" text="Quantity" textFill="WHITE">
                      <font>
                         <Font name="Pristina" size="40.0" />
@@ -355,7 +368,7 @@
                         <Font name="Pristina" size="25.0" />
                      </font>
                   </Button>
-                  <TextArea fx:id="totalTextArea" layoutX="45.0" layoutY="125.0" prefHeight="433.0" prefWidth="1012.0" stylesheets="@food.css" />
+                  <TextArea fx:id="totalTextArea" layoutX="45.0" layoutY="125.0" prefHeight="433.0" prefWidth="1012.0" stylesheets="@CSS/food.css" />
                </children></AnchorPane>
         </content>
       </Tab>

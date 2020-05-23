@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane id="AnchorPane" cache="true" prefHeight="540.0" prefWidth="708.0" style="-fx-background-color: #2f4f4f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Room">
+   <children>
+      <Label layoutX="227.0" layoutY="14.0" text="Choose your room">
+         <font>
+            <Font name="Pristina" size="45.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#b00db5" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="140.0" layoutY="103.0" text="Room">
+         <font>
+            <Font name="Pristina" size="35.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#b00db5" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Button fx:id="chooseBttn" layoutX="481.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleAddRoom" prefHeight="58.0" prefWidth="126.0" style="-fx-background-color: aqua; -fx-background-radius: 20;" stylesheets="@CSS/button.css" text="Choose!">
+         <font>
+            <Font name="Pristina" size="25.0" />
+         </font>
+         <styleClass>
+            <String fx:value="btn-text" />
+            <String fx:value="btn" />
+         </styleClass>
+      </Button>
+      <Button fx:id="removeBttn" layoutX="481.0" layoutY="456.0" mnemonicParsing="false" onAction="#handleRemoveRoom" prefHeight="60.0" prefWidth="126.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 20; -fx-background-radius: 20;" stylesheets="@CSS/button.css" text="Reset" textFill="AQUA">
+         <font>
+            <Font name="Pristina" size="25.0" />
+         </font>
+         <styleClass>
+            <String fx:value="button-text" />
+            <String fx:value="btn" />
+         </styleClass>
+      </Button>
+      <Label layoutX="140.0" layoutY="183.0" text="Person quantity">
+         <font>
+            <Font name="Pristina" size="35.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#b00db5" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="140.0" layoutY="270.0" text="Your room number is:">
+         <font>
+            <Font name="Pristina" size="35.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#b00db5" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Button fx:id="addPerson" layoutX="454.0" layoutY="187.0" mnemonicParsing="false" onAction="#handleAddPerson" prefHeight="31.0" prefWidth="37.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 15;" text="+" textFill="AQUA">
+         <font>
+            <Font name="Pristina" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="removePerson" layoutX="517.0" layoutY="187.0" mnemonicParsing="false" onAction="#handleRemovePerson" prefHeight="31.0" prefWidth="37.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 15;" text="-" textFill="AQUA">
+         <font>
+            <Font name="Pristina" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="personQuan" layoutX="370.0" layoutY="183.0" text="0">
+         <font>
+            <Font name="Pristina" size="35.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#b00db5" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label fx:id="roomNumber" layoutX="422.0" layoutY="270.0" text="0">
+         <font>
+            <Font name="Pristina" size="35.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#b00db5" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <TextArea fx:id="infoText" layoutX="119.0" layoutY="369.0" prefHeight="147.0" prefWidth="336.0" stylesheets="@CSS/food.css" />
+      <RadioButton fx:id="deLuxeRadio" layoutX="242.0" layoutY="112.0" mnemonicParsing="false" text="De Luxe">
+         <toggleGroup>
+            <ToggleGroup fx:id="Room" />
+         </toggleGroup>
+         <font>
+            <Font name="Pristina" size="25.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#6d3490" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </RadioButton>
+      <RadioButton fx:id="villaRadio" layoutX="374.0" layoutY="112.0" mnemonicParsing="false" text="Villa" toggleGroup="$Room">
+         <font>
+            <Font name="Pristina" size="25.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#6d3490" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </RadioButton>
+      <RadioButton fx:id="presidentRadio" layoutX="477.0" layoutY="112.0" mnemonicParsing="false" text="President" toggleGroup="$Room">
+         <font>
+            <Font name="Pristina" size="25.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#6d3490" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </RadioButton>
+      <Button fx:id="generateBttn" layoutX="485.0" layoutY="269.0" mnemonicParsing="false" onAction="#handleGenerateNumber" prefHeight="60.0" prefWidth="119.0" style="-fx-background-color: #2f4f4f; -fx-border-color: aqua; -fx-border-radius: 15;" stylesheets="@CSS/button.css" text="Generate!" textFill="AQUA">
+         <font>
+            <Font name="Pristina" size="25.0" />
+         </font>
+         <styleClass>
+            <String fx:value="button-text" />
+            <String fx:value="btn" />
+         </styleClass>
+      </Button>
+      <Button fx:id="backBttn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="86.0" style="-fx-background-color: #2f4f4f; -fx-border-color: black; -fx-border-radius: 15;" stylesheets="@CSS/button.css" text="Back" textFill="LIME">
+         <font>
+            <Font name="Pristina" size="20.0" />
+         </font>
+         <styleClass>
+            <String fx:value="btn-text" />
+            <String fx:value="btn" />
+         </styleClass>
+      </Button>
+   </children>
+</AnchorPane>

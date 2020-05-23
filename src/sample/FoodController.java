@@ -12,8 +12,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 public class FoodController implements Initializable {
 
@@ -107,7 +111,7 @@ public class FoodController implements Initializable {
 
     @FXML
     private ChoiceBox<String> cbSizeDrink;
-    private final String[] sizeDrinkItems = {"300 ml " , "500 ml", "700 ml"};
+    private final String[] sizeDrinkItems = {"300 ml ", "500 ml", "700 ml"};
     private final ObservableList<String> sizeDrinkList = FXCollections.observableArrayList(sizeDrinkItems);
 
     @FXML
@@ -117,7 +121,6 @@ public class FoodController implements Initializable {
 
     @FXML
     private RadioButton tunaRB;
-
 
 
     @FXML
@@ -155,6 +158,10 @@ public class FoodController implements Initializable {
     @FXML
     private Button calculateEvery;
 
+    @FXML
+    private Button backBttn;
+
+
     Soup soup = new Soup();
     Seafood seafood = new Seafood();
     Pasta pasta = new Pasta();
@@ -166,7 +173,7 @@ public class FoodController implements Initializable {
         //soup
         cbSizeSoup.setItems(sizeSoupList);
         soup.setQuantity(0);
-        soup.quantityProperty().addListener(new ChangeListener<Object>(){
+        soup.quantityProperty().addListener(new ChangeListener<Object>() {
             @Override
             public void changed(ObservableValue<? extends Object> observable, Object oldValue, Object newValue) {
                 soupQnt.setText(String.valueOf(soup.getQuantity()));
@@ -175,7 +182,7 @@ public class FoodController implements Initializable {
         //pasta
         cbSizePasta.setItems(sizePastaList);
         pasta.setQuantity(0);
-        pasta.quantityProperty().addListener(new ChangeListener<Object>(){
+        pasta.quantityProperty().addListener(new ChangeListener<Object>() {
             @Override
             public void changed(ObservableValue<? extends Object> observable, Object oldValue, Object newValue) {
                 pastaQnt.setText(String.valueOf(pasta.getQuantity()));
@@ -184,7 +191,7 @@ public class FoodController implements Initializable {
         //sea
         cbSizeSea.setItems(sizeSeaList);
         seafood.setQuantity(0);
-        seafood.quantityProperty().addListener(new ChangeListener<Object>(){
+        seafood.quantityProperty().addListener(new ChangeListener<Object>() {
             @Override
             public void changed(ObservableValue<? extends Object> observable, Object oldValue, Object newValue) {
                 seaQnt.setText(String.valueOf(seafood.getQuantity()));
@@ -193,14 +200,29 @@ public class FoodController implements Initializable {
         //drink
         cbSizeDrink.setItems(sizeDrinkList);
         drink.setQuantity(0);
-        drink.quantityProperty().addListener(new ChangeListener<Object>(){
+        drink.quantityProperty().addListener(new ChangeListener<Object>() {
             @Override
             public void changed(ObservableValue<? extends Object> observable, Object oldValue, Object newValue) {
                 drinkQnt.setText(String.valueOf(drink.getQuantity()));
             }
         });
 
+        backBttn.setOnAction(actionEvent -> {
+            backBttn.getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/sample/HomePage.fxml"));
+            try {
+                loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Parent root = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        });
     }
+
 
     @FXML
     void handleAddSoupQnt(ActionEvent event) {
@@ -219,20 +241,20 @@ public class FoodController implements Initializable {
         DecimalFormat currency = new DecimalFormat("$,###.00");
 
         // coupon
-        if (chkNone.isSelected()){
+        if (chkNone.isSelected()) {
             coupon.setPrice(0);
             couponAmount += 0.0;
         }
-        if (chkOne.isSelected()){
+        if (chkOne.isSelected()) {
             coupon.setPrice(1);
             couponAmount += 1.0;
         }
-        if (chkTwo.isSelected()){
+        if (chkTwo.isSelected()) {
             coupon.setPrice(2);
             couponAmount += 2.0;
         }
 
-        if (ramenRB.isSelected()){
+        if (ramenRB.isSelected()) {
             soup.setType(1);
             soup.setSize(cbSizeSoup.getSelectionModel().getSelectedIndex());
             soup.setPrice(9.59);
@@ -240,10 +262,10 @@ public class FoodController implements Initializable {
             textArea.appendText(ramenRB.getText() + " "
                     + currency.format(soup.getPrice()) + " "
                     + soup.getQuantity() + " " + soup.getSize()
-                    + " " + currency.format(couponAmount) + "\n");
+                    + " " +  currency.format(couponAmount) + " " + "\n");
 
 
-        } else if (onionRB.isSelected()){
+        } else if (onionRB.isSelected()) {
             soup.setType(2);
             soup.setSize(cbSizeSoup.getSelectionModel().getSelectedIndex());
             soup.setPrice(9.99);
@@ -253,7 +275,7 @@ public class FoodController implements Initializable {
                     + soup.getQuantity() + " " + soup.getSize()
                     + " " + currency.format(couponAmount) + "\n");
 
-        } else if (borshRB.isSelected()){
+        } else if (borshRB.isSelected()) {
             soup.setType(3); // fix this!
             soup.setSize(cbSizeSoup.getSelectionModel().getSelectedIndex());
             soup.setPrice(8.99);
@@ -268,7 +290,7 @@ public class FoodController implements Initializable {
         }
 
         ///////
-        if (alchRB.isSelected()){
+        if (alchRB.isSelected()) {
             drink.setType(1); // 1 for Coke, 2 for Sprite
             drink.setSize(cbSizeDrink.getSelectionModel().getSelectedIndex());
             drink.setPrice(4.99);
@@ -278,7 +300,7 @@ public class FoodController implements Initializable {
                     + drink.getQuantity() + " " + drink.getSize()
                     + " " + currency.format(couponAmount) + "\n");
 
-        } else if (waterRB.isSelected()){
+        } else if (waterRB.isSelected()) {
             drink.setType(2);
             drink.setSize(cbSizeDrink.getSelectionModel().getSelectedIndex());
             drink.setPrice(0.59);
@@ -287,7 +309,7 @@ public class FoodController implements Initializable {
                     + currency.format(drink.getPrice()) + " "
                     + drink.getQuantity() + " " + drink.getSize()
                     + " " + currency.format(couponAmount) + "\n");
-        } else if (juiceRB.isSelected()){
+        } else if (juiceRB.isSelected()) {
             drink.setType(2);
             drink.setSize(cbSizeDrink.getSelectionModel().getSelectedIndex());
             drink.setPrice(1.59);
@@ -301,7 +323,7 @@ public class FoodController implements Initializable {
         }
 
         /////
-        if (alfredoRB.isSelected()){
+        if (alfredoRB.isSelected()) {
             pasta.setType(1);
             pasta.setSize(cbSizePasta.getSelectionModel().getSelectedIndex());
             pasta.setPrice(5.59);
@@ -312,7 +334,7 @@ public class FoodController implements Initializable {
                     + " " + currency.format(couponAmount) + "\n");
 
 
-        } else if (fettRB.isSelected()){
+        } else if (fettRB.isSelected()) {
             pasta.setType(2);
             pasta.setSize(cbSizePasta.getSelectionModel().getSelectedIndex());
             pasta.setPrice(2.59);
@@ -322,7 +344,7 @@ public class FoodController implements Initializable {
                     + pasta.getQuantity() + " " + pasta.getSize()
                     + " " + currency.format(couponAmount) + "\n");
 
-        } else if (balogRB.isSelected()){
+        } else if (balogRB.isSelected()) {
             pasta.setType(3); // fix this!
             pasta.setSize(cbSizePasta.getSelectionModel().getSelectedIndex());
             pasta.setPrice(1.59);
@@ -336,7 +358,7 @@ public class FoodController implements Initializable {
             textArea.appendText("Please select a Pasta type!\n");
         }
 ////////
-        if (ShrimpsRB.isSelected()){
+        if (ShrimpsRB.isSelected()) {
             seafood.setType(1); // 1 for Hawaiian, 2 for Seafood, 3 for Vege
             seafood.setSize(cbSizeSea.getSelectionModel().getSelectedIndex()); // 0 for Small, 1 for Medium, 2 for Large
             seafood.setPrice(7.59);
@@ -346,7 +368,7 @@ public class FoodController implements Initializable {
                     + seafood.getQuantity() + " " + seafood.getSize()
                     + " " + currency.format(couponAmount) + "\n");
 
-        } else if (tunaRB.isSelected()){
+        } else if (tunaRB.isSelected()) {
             seafood.setType(2);
             seafood.setSize(cbSizeSea.getSelectionModel().getSelectedIndex());
             seafood.setPrice(9.59);
@@ -356,7 +378,7 @@ public class FoodController implements Initializable {
                     + seafood.getQuantity() + " " + seafood.getSize()
                     + " " + currency.format(couponAmount) + "\n");
 
-        } else if (squidRB.isSelected()){
+        } else if (squidRB.isSelected()) {
             seafood.setType(3); // fix this!
             seafood.setSize(cbSizeSea.getSelectionModel().getSelectedIndex());
             seafood.setPrice(12.59);
@@ -368,9 +390,14 @@ public class FoodController implements Initializable {
 
         } else {
             textArea.appendText("Please select a Seafood type!\n");
+
         }
 
-        writeRecord(soup , drink, seafood, pasta, couponAmount);
+
+        textArea.appendText("Bon Appetite!");
+        textArea.setStyle("-fx-text-fill: aqua; -fx-font-size: 16px;");
+
+        writeRecord(soup, drink, seafood, pasta, couponAmount);
     }
 
     @FXML
@@ -399,6 +426,7 @@ public class FoodController implements Initializable {
         balogRB.setSelected(false);
         pastaQnt.setText(null);
         cbSizePasta.setValue(null);
+        textArea.setText(null);
     }
 
     @FXML
@@ -432,42 +460,18 @@ public class FoodController implements Initializable {
         drink.setQuantity(drink.getQuantity() - 1);
     }
 
-    public void writeRecord(Soup soup, Drink drink, Seafood seafood,Pasta pasta , double couponAmount){
-        FileWriter file = null;
-        PrintWriter output = null;
+    @FXML
+    private void handleCalculateSales(ActionEvent event) {
+        readRecord();
+    }
 
-        try {
 
-            file = new FileWriter("src\\sample\\sales.txt", true);
-
-            // Create an output file
-            output = new PrintWriter(file);
-
-            output.println(
-                    soup.getType() + " " + soup.getPrice() + " "
-                            + soup.getQuantity() + " " + soup.getSize() + " "
-                            + pasta.getType() + " " + pasta.getPrice() + " "
-                                + pasta.getQuantity() + " " + pasta.getSize() + " "
-                            + seafood.getType() + " " + seafood.getPrice() + " "
-                            + seafood.getQuantity() + " " + seafood.getSize() + " "
-                            + drink.getType() + " " + drink.getPrice() + " "
-                            + drink.getQuantity() + " " + drink.getSize()
-                            + " " + couponAmount);
-
-            output.close();
-        } catch (FileNotFoundException ex1) {
-            ex1.toString();
-        } catch (IOException ex2){
-            ex2.toString();
-        }
-        }
-
-    public void readRecord(){
-        File file = null;
+    public void readRecord() {
+        FileReader file = null;
         Scanner input = null;
 
         try {
-            file = new File("src\\sample\\sales.txt");
+            file = new FileReader("src\\sample\\sales.txt");
 
             input = new Scanner(file);
 
@@ -487,7 +491,7 @@ public class FoodController implements Initializable {
                     + "Type \t" + "Price \t" + "Quantity \t\t" + "Size \t" + "Subtotal \t\t"
                     + "Coupon Amount" + "\n");
 
-            while (input.hasNext()){
+            while (input.hasNext()) {
                 // soup
                 int soupType = input.nextInt();
                 double soupPrice = input.nextDouble();
@@ -535,20 +539,50 @@ public class FoodController implements Initializable {
             totalTextArea.appendText("Total: " + currency.format(total - couponTotal) + "\n");
 
             input.close();
-        } catch (FileNotFoundException ex1){
+        } catch (FileNotFoundException ex1) {
             ex1.toString();
-        } catch (IOException ex2){
+        } catch (IOException ex2) {
             ex2.toString();
         } finally {
-            if (input != null){
+            if (input != null) {
                 input.close();
             }
         }
     }
-    @FXML
-    private void handleCalculateSales(ActionEvent event) {
-        readRecord();
+
+    public void writeRecord(Soup soup, Drink drink, Seafood seafood, Pasta pasta, double couponAmount) {
+        FileWriter file = null;
+        PrintWriter output = null;
+
+        try {
+
+            file = new FileWriter("src\\sample\\sales.txt", true);
+
+            // Create an output file
+            output = new PrintWriter(file);
+
+            output.println(
+                    soup.getType() + " " + soup.getPrice() + " "
+                            + soup.getQuantity() + " " + soup.getSize() + " "
+                            + pasta.getType() + " " + pasta.getPrice() + " "
+                            + pasta.getQuantity() + " " + pasta.getSize() + " "
+                            + seafood.getType() + " " + seafood.getPrice() + " "
+                            + seafood.getQuantity() + " " + seafood.getSize() + " "
+                            + drink.getType() + " " + drink.getPrice() + " "
+                            + drink.getQuantity() + " " + drink.getSize()
+                            + " " + couponAmount);
+
+            output.close();
+        } catch (FileNotFoundException ex1) {
+            ex1.toString();
+        } catch (IOException ex2) {
+            ex2.toString();
+        } finally {
+            if(output != null){
+                output.close();
+            }
+        }
     }
-    }
+}
 
 
